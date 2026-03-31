@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("labelled_readings.csv", names=["temperature", "humidity", "label"])
+df = pd.read_csv("labelled_dummy_readings.csv", names=["temperature", "humidity", "label"])
 
 print(df.groupby("label")[["temperature", "humidity"]].describe())
 
@@ -15,5 +15,5 @@ plt.xlabel("Temperature (°C)")
 plt.ylabel("Humidity (%)")
 plt.legend()
 plt.title("Class separation")
-plt.savefig("class_separation.png")
-print("Saved class_separation.png")
+plt.savefig("class_separation_dummy.png")
+print("Saved class_separation_dummy.png")

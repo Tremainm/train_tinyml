@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 import tensorflow as tf
 from tensorflow import keras
 
-df = pd.read_csv("labelled_readings.csv", names=["temperature", "humidity", "label"])
+df = pd.read_csv("labelled_dummy_readings.csv", names=["temperature", "humidity", "label"])
 
 # Encode labels to integers
 le = LabelEncoder()
@@ -62,7 +62,7 @@ converter._experimental_disable_per_channel_quantization_for_dense_layers = True
 
 tflite_model = converter.convert()
 
-with open("context_model.tflite", "wb") as f:
+with open("context_dummy_model.tflite", "wb") as f:
     f.write(tflite_model)
 
 print(f"Model size: {len(tflite_model)} bytes")
